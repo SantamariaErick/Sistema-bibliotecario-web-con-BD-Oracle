@@ -39,6 +39,7 @@
 						<div class="panel-body table-responsive" id="listadoregistros">
 							<table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
 								<thead>
+									<th>ID</th>
 									<th>Titulo</th>
 									<th>Disponible</th>
 									<th>Autor</th>
@@ -55,7 +56,8 @@
 								<tbody>
 									<?php
 									while ( $row = oci_fetch_array( $stid ) ) {
-										echo '<tr><td>' . $row[ "LIB_TITULO" ] . '</td>';
+										echo '<tr><td>' . $row[ "LIB_ID" ] . '</td>';
+										echo '<td>' . $row[ "LIB_TITULO" ] . '</td>';
 										echo '<td>' . $row[ "LIB_CANTIDADDISPONIBLE" ] . '</td>';
 										echo '<td>' . $row[ "AUT_NOMBRE" ] . '</td>';
 										echo '<td>' . $row[ "EDI_NOMBRE" ] . '</td>';

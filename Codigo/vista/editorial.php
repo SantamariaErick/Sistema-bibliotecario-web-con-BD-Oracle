@@ -36,17 +36,17 @@
 						<div class="panel-body table-responsive" id="listadoregistros">
 							<table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
 								<thead>
+									<th>ID</th>
 									<th>Nombre</th>
 									<th>Descripcion</th>
-									<th>Condicion</th>
 									<th>Acciones</th>
 								</thead>
 								<tbody>
 									<?php
 									while ( $row = oci_fetch_array( $stid ) ) {
-										echo '<tr><td>' . $row[ "EDI_NOMBRE" ] . '</td>';
+										echo '<tr><td>' . $row[ "EDI_ID" ] . '</td>';
+										echo '<td>' . $row[ "EDI_NOMBRE" ] . '</td>';
 										echo '<td>' . $row[ "EDI_DESCRIPCION" ] . '</td>';
-										echo '<td>' . $row[ "EDI_CONDICION" ] . '</td>';
 										echo '<td> <a href="editar_editorial.php?id='.$row["EDI_ID" ].'" title="Editar">Editar</a></td></tr>';
 									}
 									?>
