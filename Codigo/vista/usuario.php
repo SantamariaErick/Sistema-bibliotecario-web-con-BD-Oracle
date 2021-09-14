@@ -41,6 +41,7 @@
                             <th>Email</th>
                             <th>Uuario</th>
                             <th>Acciones</th>
+                            <th>ESTADO</th>
                           </thead>
                           <tbody>    
 							  <?php
@@ -55,8 +56,8 @@
 										echo '<td>' . $row[ "USU_TELEFONO" ] . '</td>';
 										echo '<td>' . $row[ "USU_EMAIL" ] . '</td>';
 										echo '<td>' . $row[ "USU_LOGIN" ] . '</td>';
-
-										echo '<td> <a href="editar_usuario_recibe.php?id='.$row["USU_ID" ].'" title="Editar">Editar</a><a href="eliminar_usuario.php?id='.$row[ "USU_ID" ].'" title="Activar"  class="btn-eliminar-i">Borrar</a></td></tr>';
+										echo '<td>' . $row[ "USU_ESTADO" ] . '</td>';
+										echo '<td> <a href="editar_usuario_recibe.php?id='.$row["USU_ID" ].'" title="Editar">Editar </a><a href="eliminar_usuario.php?id='.$row[ "USU_ID" ].'" title="Activar"  class="btn-eliminar-i">Borrar</a></td></tr>';
 									}					  
 								?>                          
                           </tbody>
