@@ -17,7 +17,7 @@
             <li><a href="autores.php" target="iframe_a"><i class="fas fa-user"></i>Autores</a></li>
             <li><a href="editorial.php" target="iframe_a"><i class="fas fa-globe-americas"></i>Editoriales</a></li>
             <li><a href="materia.php" target="iframe_a"><i class="fas fa-book"></i>Materias</a></li>
-            <li><a href="#" target="iframe_a"><i class="fas fa-user"></i>Estudiantes</a></li>
+            <li><a href="estudiante.php" target="iframe_a"><i class="fas fa-user"></i>Estudiantes</a></li>
 			<li><a href="#" target="iframe_a"><i class="fas fa-user"></i>Administrador</a></li>
             <li><a href="#" target="iframe_a"><i class="fas fa-info-circle"></i>Acerca de</a></li>
 			<li><a href="../index.html"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a></li>
