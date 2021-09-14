@@ -32,7 +32,7 @@
 	?>
 	
 	<div class="cuerpo2">
-		<form name="form1" id="form1" method="post" action="editar_estdiante_actualizar.php">
+		<form name="form1" id="form1" method="post" action="editar_estudiante_actualizar.php">
 			<div class="cont-tabla">
 			<?php
 			//Mostramos los registros

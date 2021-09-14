@@ -50,6 +50,7 @@
 									<th>Peso</th>
 									<th>Descripcion</th>
 									<th>Imagen</th>
+									<th>Acciones</th>
 								</thead>
 								<tbody>
 									<?php
@@ -64,7 +65,8 @@
 										echo '<td>' . $row[ "LIB_FORMATO" ] . '</td>';
 										echo '<td>' . $row[ "LIB_PESO" ] . '</td>';
 										echo '<td>' . $row[ "LIB_DESCRIPCION" ] . '</td>';
-										echo '<td>' . '<img class="portada" src="../archivos/Portadas/' . $row[ "LIB_PORTADA" ] . '">' . '</td></tr>';
+										echo '<td>' . '<img class="portada" src="../archivos/Portadas/' . $row[ "LIB_PORTADA" ] . '">' . '</td>';
+										echo '<td> <a href="editar_libro.php?id='.$row["LIB_ID" ].'" title="Editar">Editar</a></td></tr>';
 									}
 									?>
 								</tbody>

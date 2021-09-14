@@ -8,8 +8,6 @@
 <body>
 
 	<?php
-	$mensaje = "";
-	
 	$id = $_POST[ 'id' ]; 
 	$codigo = $_POST[ 'codigo' ];
 	$cedula = $_POST[ 'cedula' ];

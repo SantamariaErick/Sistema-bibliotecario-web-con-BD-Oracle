@@ -21,7 +21,7 @@ $ok = oci_execute( $stid );
 
 if ( $ok ) {
 	echo '<script>window.alert("Los datos se han guardado exitosamente");
-		window.location="formulario_autor.php";</script>';
+		window.location="formulario_libro.php";</script>';
 } else {
 	echo "<script>window.alert('Error al ingresar los datos');window.history.go(-1);</script>";
 }

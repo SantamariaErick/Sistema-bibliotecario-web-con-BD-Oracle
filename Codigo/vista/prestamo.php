@@ -37,6 +37,7 @@
 						<div class="panel-body table-responsive" id="listadoregistros">
 							<table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
 								<thead>
+									<th>Id</th>
 									<th>Estudiante</th>
 									<th>Libro</th>
 									<th>Fecha prestado</th>
@@ -48,13 +49,15 @@
 								<tbody>
 									<?php
 									while ( $row = oci_fetch_array( $stid ) ) {
-										echo '<tr><td>' . $row[ "EST_NOMBRE" ] . '</td>';
+										echo '<tr><td>' . $row[ "PRE_ID" ] . '</td>';
+										echo '<td>' . $row[ "EST_NOMBRE" ] . '</td>';
 										echo '<td>' . $row[ "LIB_TITULO" ] . '</td>';
 										echo '<td>' . $row[ "PRE_FECHAPRESTADO" ] . '</td>';
 										echo '<td>' . $row[ "PRE_FECHADEVUELTO" ] . '</td>';
 										echo '<td>' . $row[ "PRE_CANTIDAD" ] . '</td>';
 										echo '<td>' . $row[ "PRE_OBSERVACIONES" ] . '</td>';
-										echo '<td>' . $row[ "PRE_ESTADO" ] . '</td></tr>';
+										echo '<td>' . $row[ "PRE_ESTADO" ] . '</td>';
+										echo '<td> <a href="editar_prestamo_recibe.php?id='.$row["PRE_ID" ].'" title="Editar">Editar</a></td></tr>';
 									}
 									?>
 								</tbody>
