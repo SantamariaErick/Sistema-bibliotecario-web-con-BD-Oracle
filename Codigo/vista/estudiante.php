@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+	<link href="../public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <title>Documento sin título</title>
 </head>
 

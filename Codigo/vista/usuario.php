@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta charset="utf-8">
+	<link href="../public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <title>Documento sin título</title>
 </head>
 
 <body>
 <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">  
+<div class="content-wrapper">
         <?php
 			$conexion = oci_connect('BIBLIOTECA', 'bibliotecaweb', 'localhost/orcl');
 			//Ejecutamos la sentencia SQL
