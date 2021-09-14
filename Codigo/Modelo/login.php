@@ -26,10 +26,11 @@ if (!$r) {
 //comprobar datos de la consulta
 $row = oci_fetch_array($stid,OCI_ASSOC); 
 if($row >0){
-	echo "User si existe";	
+	echo '<script>window.alert("Clave y usuario correctos"); window.location="../index.html";</script>';
+	//Aqui va un header('paginaPrincipal');
 }
 else{
-	echo "No hay datos de ese usuario";
+	echo '<script>window.alert("Clave o usuario incorrectos. Ingrese nuevamente"); window.location="../index.html";</script>';
 }
 
 oci_free_statement($stid);
