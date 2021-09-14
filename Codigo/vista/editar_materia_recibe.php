@@ -46,10 +46,6 @@
 				<div class="form-dividido2 formulario__grupo" id="grupo__descripcion"><p><label for="descripcion" class="formulario__label">Descripcion </label></p>
 				<input type="text" class="formulario__input" name="descripcion" id="descripcion" value="<?php echo $row[ "MAT_DESCRIPCION" ]; ?>" placeholder="Ingrese la descripcion" required>
 				</div>
-				
-				<div class="form-dividido2 formulario__grupo" id="grupo__condicion"><p><label for="condicion" class="formulario__label">Condicion </label></p>
-				<input type="text" class="formulario__input" name="condicion" id="condicion" value="<?php echo $row[ "MAT_CONDICION" ]; ?>" placeholder="Ingrese la condicion" required>
-				</div>
 
 				</div>
 
