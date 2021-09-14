@@ -56,7 +56,7 @@
 								echo '<td>' . $row[ "EST_TELEFONO" ] . '</td>';
 								echo '<td>' . $row[ "EST_EMAIL" ] . '</td>';
 								echo '<td>' . $row[ "EST_ESTADO" ] . '</td>';
-								echo '<td> <a href="editar_estudiante_recibe.php?id='.$row["EST_ID" ].'" title="Editar">Editar</a></td></tr>';
+								echo '<td> <a href="editar_estudiante_recibe.php?id='.$row["EST_ID" ].'" title="Editar">Editar </a><a href="eliminar_estudiante.php?id='.$row[ "EST_ID" ].'" title="Activar"  class="btn-eliminar-i">Borrar</a></td></tr>';
 							}
 						?>                           
 					  </tbody>
