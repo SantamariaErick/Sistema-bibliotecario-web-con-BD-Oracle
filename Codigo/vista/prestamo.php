@@ -8,7 +8,7 @@
 
 <body>
 	<h3>Prestamo</h3>
-	<div><a><input type="button" value="Prestar"></a></div>
+	<div><a href="formulario_prestamo.php"><input type="button" value="Prestar"></a></div>
 	<?php
 	require('../controlador/Conexion.php');
 	$stid = oci_parse($conexion, "SELECT * FROM prestamo p, estudiante e, libro l where p.est_id=e.est_id and p.lib_id = l.lib_id");

@@ -1,10 +1,9 @@
 <?php
+require('../controlador/Conexion.php');
 $id = $_POST[ 'id' ];
 $nombre = $_POST[ 'nombre' ];
 $descripcion = $_POST[ 'descripcion' ];
 $estado = 1;
-
-$conexion = oci_connect( 'BIBLIOTECA', 'bibliotecaweb', 'localhost/orcl' );
 
 $query = "INSERT INTO editorial(edi_id,edi_nombre, edi_descripcion,edi_condicion) VALUES ($id,'$nombre','$descripcion',$estado)";
 
@@ -17,4 +16,5 @@ if ( $ok ) {
 } else {
 	echo "<script>window.alert('Error al ingresar los datos');window.history.go(-1);</script>";
 }
+oci_free_statement($stid); 
 ?>

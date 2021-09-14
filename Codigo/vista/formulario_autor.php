@@ -24,7 +24,7 @@
 	</div>
 	
 		<div class="form-dividido2 formulario__grupo" id="grupo__descripcion"><p><label for="descripcion" class="formulario__label">Imagen </label></p>
-	<input type="text" class="formulario__input" name="imagen" id="imagen" required>
+	<input type="file" class="formulario__input" name="imagen" id="imagen" required>
 	</div>
 	
 	</div>

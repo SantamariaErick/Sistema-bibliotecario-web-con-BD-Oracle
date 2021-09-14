@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <title>Documento sin título</title>
 	<link href="../public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="../public/css/portadaImg.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 	<h3>Libro</h3>
-	<div><a><input type="button" value="Agregar"></a></div>
+	<div><a href="formulario_libro.php"><input type="button" value="Agregar"></a></div>
 	<?php
 	require('../controlador/Conexion.php');
 	$stid = oci_parse($conexion, "SELECT * FROM libro l, autor a, editorial e, materia m where l.aut_id = a.aut_id and l.edi_id = e.edi_id and l.mat_id = m.mat_id");
@@ -53,8 +54,8 @@
 			echo '<td>' . $row[ "LIB_CANTIDADPAGINAS" ] . '</td>';
 			echo '<td>' . $row[ "LIB_FORMATO" ] . '</td>';
 			echo '<td>' . $row[ "LIB_PESO" ] . '</td>';
-			echo '<td>' . $row[ "LIB_DESCIPCION" ] . '</td>';
-			echo '<td>' . $row[ "LIB_PORTADA" ] . '</td></tr>';
+			echo '<td>' . $row[ "LIB_DESCRIPCION" ] . '</td>';
+			echo '<td>' .'<img class="portada" src="../archivos/Portadas/'.$row[ "LIB_PORTADA" ].'">'. '</td></tr>';
 		}
 	?>
 		</table>

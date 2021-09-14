@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Autores</title>
 	<link href="../public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="../public/css/portadaImg.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -39,7 +40,7 @@
 		while ( $row = oci_fetch_array($stid) ) {
 			echo '<tr><td>' . $row[ "AUT_NOMBRE" ] . '</td>';
 			echo '<td>' . $row[ "AUT_DESCRIPCION" ] . '</td>';
-			echo '<td>' . $row[ "AUT_IMAGEN" ] . '</td>';
+			echo '<td>'.'<img class="perfil" src="../archivos/Autores/'.$row[ "AUT_IMAGEN" ].'">' . '</td>';
 			echo '<td>' . $row[ "AUT_ESTADO" ] . '</td></tr>';
 		}
 	?>
