@@ -12,6 +12,8 @@ $user = $_POST['usuario'];
 $contra = $_POST['password'];
 // Preparar la sentencia
 $stid = oci_parse($conexion, "SELECT * FROM usuario where usu_login = '$user' and usu_clave='$contra'");
+	
+	
 if (!$stid) {
     $e = oci_error($conexion);
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
