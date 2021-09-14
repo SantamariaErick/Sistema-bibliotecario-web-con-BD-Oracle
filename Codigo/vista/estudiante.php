@@ -35,7 +35,7 @@
 					  <thead>
 						<th>ID</th>
 						<th>Codigo</th>
-						<th>DNI</th>
+						<th>Cedula</th>
 						<th>Nombre</th>
 						<th>Carrera Profesional</th>
 						<th>Direccion</th>
@@ -46,8 +46,6 @@
 					  </thead>
 					  <tbody>
 					  	<?php
-
-						  
 						  while ( $row = oci_fetch_array($stid) ) {
 								echo '<tr><td>' . $row[ "EST_ID" ] . '</td>';
 								echo '<td>' . $row[ "EST_CODIGO" ] . '</td>';
