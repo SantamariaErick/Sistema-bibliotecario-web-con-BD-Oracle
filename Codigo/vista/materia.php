@@ -31,21 +31,27 @@
 					<div class="panel-body table-responsive" id="listadoregistros">
 						<table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
 						  <thead>
-							<th>Opciones</th>
+							<th>ID</th>
 							<th>Nombre</th>
 							<th>Descripción</th>
 							<th>Estado</th>
+							<th>Acciones</th>
 						  </thead>
 						  <tbody>
 						  
 					      <?php
-								while ($fila = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-									echo "<tr>\n";
-									foreach ($fila as $elemento) {
-										echo "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
-									}
-									echo "</tr>\n";
-								} 
+															  
+							  	while ( $row = oci_fetch_array($stid) ) {
+									echo '<tr><td>' . $row[ "MAT_ID" ] . '</td>';
+									echo '<td>' . $row[ "MAT_NOMBRE" ] . '</td>';
+									echo '<td>' . $row[ "MAT_DESCRIPCION" ] . '</td>';
+									echo '<td>' . $row[ "MAT_CONDICION" ] . '</td>';
+
+									
+									echo '<td> <a href="editar_materia_recibe.php?id='.$row["MAT_ID" ].'" title="Editar">Editar</a></td></tr>';
+								}
+							  
+
 						  ?>
                                                             
 						  </tbody>
