@@ -39,18 +39,20 @@
 						<div class="panel-body table-responsive" id="listadoregistros">
 							<table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
 								<thead>
+									<th>ID</th>
 									<th>Nombre</th>
 									<th>Descripcion</th>
 									<th>Imagen</th>
-									<th>Estado</th>
+									<th>Acciones</th>
 								</thead>
 								<tbody>
 									<?php
 									while ( $row = oci_fetch_array( $stid ) ) {
-										echo '<tr><td>' . $row[ "AUT_NOMBRE" ] . '</td>';
+										echo '<tr><td>' . $row[ "AUT_ID" ] . '</td>';
+										echo '<td>' . $row[ "AUT_NOMBRE" ] . '</td>';
 										echo '<td>' . $row[ "AUT_DESCRIPCION" ] . '</td>';
 										echo '<td>' . '<img class="perfil" src="../archivos/Autores/' . $row[ "AUT_IMAGEN" ] . '">' . '</td>';
-										echo '<td>' . $row[ "AUT_ESTADO" ] . '</td></tr>';
+										echo '<td> <a href="editar_autor.php?id='.$row["AUT_ID" ].'" title="Editar">Editar</a></td></tr>';
 									}
 									?>
 								</tbody>
