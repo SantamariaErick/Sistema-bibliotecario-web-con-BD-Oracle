@@ -32,7 +32,7 @@
 				<div class="panel-body table-responsive" id="listadoregistros">
 					<table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
 					  <thead>
-						<th>Opciones</th>
+						<th>ID</th>
 						<th>Codigo</th>
 						<th>DNI</th>
 						<th>Nombre</th>
@@ -41,16 +41,24 @@
 						<th>Telefono</th>
 						<th>Email</th>
 						<th>Condición</th>
+						<th>Acciones</th>
 					  </thead>
 					  <tbody>
 					  	<?php
-							while ($fila = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-								echo "<tr>\n";
-								foreach ($fila as $elemento) {
-									echo "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
-								}
-								echo "</tr>\n";
-							} 
+
+						  
+						  while ( $row = oci_fetch_array($stid) ) {
+								echo '<tr><td>' . $row[ "EST_ID" ] . '</td>';
+								echo '<td>' . $row[ "EST_CODIGO" ] . '</td>';
+								echo '<td>' . $row[ "EST_CEDULA" ] . '</td>';
+								echo '<td>' . $row[ "EST_NOMBRE" ] . '</td>';
+								echo '<td>' . $row[ "EST_CARRERA" ] . '</td>';
+								echo '<td>' . $row[ "EST_DIRECCION" ] . '</td>';
+								echo '<td>' . $row[ "EST_TELEFONO" ] . '</td>';
+								echo '<td>' . $row[ "EST_EMAIL" ] . '</td>';
+								echo '<td>' . $row[ "EST_ESTADO" ] . '</td>';
+								echo '<td> <a href="editar_materia_recibe.php?id='.$row["EST_ID" ].'" title="Editar">Editar</a></td></tr>';
+							}
 						?>                           
 					  </tbody>
 					</table>
