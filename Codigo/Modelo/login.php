@@ -7,7 +7,7 @@
 
 <body>
 	<?php
-require('../controlador/conexion.php');
+require('../controlador/Conexion.php');
 $user = $_POST['usuario'];
 $contra = $_POST['password'];
 // Preparar la sentencia
