@@ -31,26 +31,33 @@
                         <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                           <thead>
                             <th>ID</th>
-                            
                             <th>N° Trabajador</th>
-                            <th>DNI</th>
+                            <th>Cedula</th>
                             <th>Nombre</th>
                             <th>Profesión</th>
                             <th>Cargo</th>
                             <th>Direccion</th>
                             <th>Telefono</th>
                             <th>Email</th>
-                            <th>Login</th>
+                            <th>Uuario</th>
+                            <th>Acciones</th>
                           </thead>
                           <tbody>    
 							  <?php
-								while ($fila = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-									echo "<tr>\n";
-									foreach ($fila as $elemento) {
-										echo "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
-									}
-									echo "</tr>\n";
-								} 
+									while ( $row = oci_fetch_array($stid) ) {
+										echo '<tr><td>' . $row[ "USU_ID" ] . '</td>';
+										echo '<td>' . $row[ "USU_TRABAJADOR" ] . '</td>';
+										echo '<td>' . $row[ "USU_CEDULA" ] . '</td>';
+										echo '<td>' . $row[ "USU_NOMBRE" ] . '</td>';
+										echo '<td>' . $row[ "USU_PROFESION" ] . '</td>';
+										echo '<td>' . $row[ "USU_CARGO" ] . '</td>';
+										echo '<td>' . $row[ "USU_DIRECCION" ] . '</td>';
+										echo '<td>' . $row[ "USU_TELEFONO" ] . '</td>';
+										echo '<td>' . $row[ "USU_EMAIL" ] . '</td>';
+										echo '<td>' . $row[ "USU_LOGIN" ] . '</td>';
+
+										echo '<td> <a href="editar_usuario_recibe.php?id='.$row["USU_ID" ].'" title="Editar">Editar</a></td></tr>';
+									}					  
 								?>                          
                           </tbody>
                         </table>
