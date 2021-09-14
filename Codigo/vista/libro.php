@@ -10,7 +10,7 @@
 	<div>Agregar</div>
 	<?php
 	require('../controlador/Conexion.php');
-	$stid = oci_parse($conexion, "SELECT * FROM usuario where usu_login = '$user' and usu_clave='$contra'");
+	$stid = oci_parse($conexion, "SELECT * FROM libro");
 	if (!$stid) {
 		$e = oci_error($conexion);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
