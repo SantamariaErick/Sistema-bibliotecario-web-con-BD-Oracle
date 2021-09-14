@@ -153,6 +153,5 @@
 			</form>
 		</div>
 	</div>
-	<script src="javascript/urlImagen.js"></script>
 </body>
 </html>
