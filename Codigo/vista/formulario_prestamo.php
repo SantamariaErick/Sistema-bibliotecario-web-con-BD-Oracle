@@ -8,7 +8,7 @@
 <body>
 	<div class="contenido">
 		<div class="form-contenedor">
-			<form id="form1" name="form1" method="post" action="#">
+			<form id="form1" name="form1" method="post" action="registro_prestamo.php">
 				<h1 class="centrar titulo">Formulario prestamo</h1>
 
 				<div class="row">
