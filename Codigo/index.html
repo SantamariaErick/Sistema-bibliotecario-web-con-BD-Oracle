@@ -3,8 +3,24 @@
 <head>
 <meta charset="utf-8">
 <title>Documento sin título</title>
+<link href="public/css/login.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="cuerpo">
+<div id="contenedor">
+  <div id="central">
+    <div id="login">
+      <div class="titulo"> Bienvenido </div>
+      <form id="form1" name="form1" method="post" action="modelo/login.php">
+        <label for="usuario">Usuario:</label>
+        <input type="text" name="usuario" id="usuario" placeholder="Usuario" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" placeholder="Contraseña" name="password" required>
+        <input type="submit" class="button" id="ingresar" value="Ingresar">
+      </form>
+    </div>
+  </div>
+</div>
 </body>
 </html>
+
