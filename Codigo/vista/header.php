@@ -14,8 +14,8 @@
         <ul>
             <li><a href="#" target="iframe_a"><i class="fas fa-home"></i>Escritorio</a></li>
             <li><a href="libro.php" target="iframe_a"><i class="fas fa-book-open"></i>Libros</a></li>
-            <li><a href="#" target="iframe_a"><i class="fas fa-user"></i>Autores</a></li>
-            <li><a href="#" target="iframe_a"><i class="fas fa-globe-americas"></i>Editoriales</a></li>
+            <li><a href="autores.php" target="iframe_a"><i class="fas fa-user"></i>Autores</a></li>
+            <li><a href="editorial.php" target="iframe_a"><i class="fas fa-globe-americas"></i>Editoriales</a></li>
             <li><a href="materia.php" target="iframe_a"><i class="fas fa-book"></i>Materias</a></li>
             <li><a href="#" target="iframe_a"><i class="fas fa-user"></i>Estudiantes</a></li>
 			<li><a href="#" target="iframe_a"><i class="fas fa-user"></i>Administrador</a></li>
@@ -25,8 +25,9 @@
     </div>
     <div class="main_content">
         <div class="header">Sistema Bilbiotecario</div>  
-        <iframe src="" name="iframe_a"></iframe>
+        <div class="ventana"><iframe name="iframe_a"></iframe></div>
     </div>
+		
 </div>
 </body>
 </html>
