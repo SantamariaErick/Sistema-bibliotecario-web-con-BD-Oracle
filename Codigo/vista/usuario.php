@@ -56,7 +56,7 @@
 										echo '<td>' . $row[ "USU_EMAIL" ] . '</td>';
 										echo '<td>' . $row[ "USU_LOGIN" ] . '</td>';
 
-										echo '<td> <a href="editar_usuario_recibe.php?id='.$row["USU_ID" ].'" title="Editar">Editar</a></td></tr>';
+										echo '<td> <a href="editar_usuario_recibe.php?id='.$row["USU_ID" ].'" title="Editar">Editar</a><a href="eliminar_usuario.php?id='.$row[ "USU_ID" ].'" title="Activar"  class="btn-eliminar-i">Borrar</a></td></tr>';
 									}					  
 								?>                          
                           </tbody>

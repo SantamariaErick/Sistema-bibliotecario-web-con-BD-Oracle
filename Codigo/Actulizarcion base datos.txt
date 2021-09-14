@@ -1,0 +1,4 @@
+alter table USUARIO add USU_ESTADO number(4) default 0 not null;
+
+commit;
+
