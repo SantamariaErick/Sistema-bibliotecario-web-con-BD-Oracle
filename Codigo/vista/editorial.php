@@ -29,7 +29,7 @@
 					<div class="box">
 						<div class="box-header with-border">
 							<h1 class="box-title">Editorial 	  
-					  <a href="formulario_usuario.php" id="idcrear" ><button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></a></h1>
+					  <a href="formulario_editorial.php" id="idcrear" ><button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></a></h1>
 						</div>
 						<!-- /.box-header -->
 						<!-- centro -->
