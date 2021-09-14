@@ -52,7 +52,7 @@
 										echo '<td>' . $row[ "AUT_NOMBRE" ] . '</td>';
 										echo '<td>' . $row[ "AUT_DESCRIPCION" ] . '</td>';
 										echo '<td>' . '<img class="perfil" src="../archivos/Autores/' . $row[ "AUT_IMAGEN" ] . '">' . '</td>';
-										echo '<td> <a href="editar_autor.php?id='.$row["AUT_ID" ].'" title="Editar">Editar</a></td></tr>';
+										echo '<td> <a href="editar_autor.php?id='.$row["AUT_ID" ].'" title="Editar">Editar </a><a href="eliminar_autor.php?id='.$row[ "AUT_ID" ].'" title="Activar"  class="btn-eliminar-i">Borrar</a></td></tr>';
 									}
 									?>
 								</tbody>

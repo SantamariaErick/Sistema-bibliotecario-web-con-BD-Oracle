@@ -47,7 +47,7 @@
 										echo '<tr><td>' . $row[ "EDI_ID" ] . '</td>';
 										echo '<td>' . $row[ "EDI_NOMBRE" ] . '</td>';
 										echo '<td>' . $row[ "EDI_DESCRIPCION" ] . '</td>';
-										echo '<td> <a href="editar_editorial.php?id='.$row["EDI_ID" ].'" title="Editar">Editar</a></td></tr>';
+										echo '<td> <a href="editar_editorial.php?id='.$row["EDI_ID" ].'" title="Editar">Editar </a><a href="eliminar_editorial.php?id='.$row[ "EDI_ID" ].'" title="Activar"  class="btn-eliminar-i">Borrar</a></td></tr>';
 									}
 									?>
 								</tbody>
