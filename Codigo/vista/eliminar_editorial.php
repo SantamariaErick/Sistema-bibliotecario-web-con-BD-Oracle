@@ -1,24 +1,22 @@
 <?php
+
 require('../controlador/Conexion.php');
 
 $id = $_GET['id'];
 
-$consultar = "SELECT * FROM ESTUDIANTE WHERE EST_ID = $id";
+$consultar = "SELECT * FROM EDITORIAL WHERE EDI_ID = $id";
 $stid = oci_parse($conexion, $consultar);
 $r = oci_execute($stid);
 
 while ( $row = oci_fetch_array($stid) ) {
-	$estado = $row["EST_ESTADO"];
-	$usu = $row["EST_ID"];
+	$estado = $row["EDI_CONDICION"];
 }
 
 if (!$stid) {
 	$e = oci_error($conexion);
 	trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
-
 // Realizar la lógica de la consulta
-
 if($estado == '1'){
 	$estado = '0';
 	$msj = 'eliminado';
@@ -27,14 +25,14 @@ if($estado == '1'){
 	$msj = 'activado';
 }
 
-$eliminar = "UPDATE ESTUDIANTE SET EST_ESTADO = $estado WHERE EST_ID = $id";
+$eliminar = "UPDATE EDITORIAL SET EDI_CONDICION = $estado WHERE EDI_ID = $id";
 $stid = oci_parse($conexion, $eliminar);
 $r2 = oci_execute($stid);
 
 if($r && $r2){
 	echo '<script> 
 			alert("Registro '.$msj.' correctamente");
-			window.location="estudiante.php";
+			window.location="editorial.php";
 		</script>';
 } else{
 	echo '<script>
@@ -43,4 +41,3 @@ if($r && $r2){
 		</script>';
 }
 ?>
-	

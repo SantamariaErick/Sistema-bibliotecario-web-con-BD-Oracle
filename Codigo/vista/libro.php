@@ -68,7 +68,7 @@
 										echo '<td>' . $row[ "LIB_PESO" ] . '</td>';
 										echo '<td>' . $row[ "LIB_DESCRIPCION" ] . '</td>';
 										echo '<td>' . '<img class="portada" src="../archivos/Portadas/' . $row[ "LIB_PORTADA" ] . '">' . '</td>';
-										echo '<td> <a href="editar_libro.php?id='.$row["LIB_ID" ].'" title="Editar">Editar</a></td></tr>';
+										echo '<td> <a href="editar_libro.php?id='.$row["LIB_ID" ].'" title="Editar">Editar </a><a href="eliminar_libro.php?id='.$row[ "LIB_ID" ].'" title="Activar"  class="btn-eliminar-i">Borrar</a></td></tr>';
 									}
 									?>
 								</tbody>

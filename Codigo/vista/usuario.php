@@ -39,9 +39,9 @@
                             <th>Direccion</th>
                             <th>Telefono</th>
                             <th>Email</th>
-                            <th>Uuario</th>
-                            <th>Acciones</th>
+                            <th>Usuario</th>
                             <th>ESTADO</th>
+							 <th>Acciones</th>
                           </thead>
                           <tbody>    
 							  <?php
