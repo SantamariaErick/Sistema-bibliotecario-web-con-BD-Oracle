@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 10g                           */
-/* Created on:     11/9/2021 19:25:21                           */
+/* Created on:     13/9/2021 23:59:06                           */
 /*==============================================================*/
 
 
@@ -86,8 +86,8 @@ create index RELATIONSHIP_7_FK on AUDITORIA (
 create table AUTOR  (
    AUT_ID               INTEGER                         not null,
    AUT_NOMBRE           VARCHAR2(50)                    not null,
-   AUT_DESCRIPCION      VARCHAR2(300)                   not null,
-   AUT_IMAGEN           VARCHAR2(50)                    not null,
+   AUT_DESCRIPCION      VARCHAR2(300),
+   AUT_IMAGEN           VARCHAR2(50),
    AUT_ESTADO           SMALLINT                        not null,
    constraint PK_AUTOR primary key (AUT_ID)
 );
@@ -98,7 +98,7 @@ create table AUTOR  (
 create table EDITORIAL  (
    EDI_ID               INTEGER                         not null,
    EDI_NOMBRE           VARCHAR2(50)                    not null,
-   EDI_DESCRIPCION      VARCHAR2(300)                   not null,
+   EDI_DESCRIPCION      VARCHAR2(300),
    EDI_CONDICION        SMALLINT                        not null,
    constraint PK_EDITORIAL primary key (EDI_ID)
 );
@@ -133,8 +133,8 @@ create table LIBRO  (
    LIB_CANTIDADPAGINAS  NUMBER(10)                      not null,
    LIB_FORMATO          VARCHAR2(50)                    not null,
    LIB_PESO             NUMBER(7,2)                     not null,
-   LIB_DESCIPCION       VARCHAR2(500)                   not null,
-   LIB_PORTADA          VARCHAR2(50)                    not null,
+   LIB_DESCRIPCION      VARCHAR2(500),
+   LIB_PORTADA          VARCHAR2(50),
    LIB_ESTADO           SMALLINT                        not null,
    constraint PK_LIBRO primary key (LIB_ID)
 );
@@ -166,7 +166,7 @@ create index ESCRIBE_FK on LIBRO (
 create table MATERIA  (
    MAT_ID               INTEGER                         not null,
    MAT_NOMBRE           VARCHAR2(50)                    not null,
-   MAT_DESCRIPCION      VARCHAR2(300)                   not null,
+   MAT_DESCRIPCION      VARCHAR2(300),
    MAT_CONDICION        SMALLINT                        not null,
    constraint PK_MATERIA primary key (MAT_ID)
 );
@@ -179,9 +179,9 @@ create table PRESTAMO  (
    EST_ID               INTEGER                         not null,
    LIB_ID               INTEGER                         not null,
    PRE_FECHAPRESTADO    DATE                            not null,
-   PRE_FECHADEVUELTO    DATE                            not null,
+   PRE_FECHADEVUELTO    DATE,
    PRE_CANTIDAD         NUMBER(10)                      not null,
-   PRE_OBSERVACIONES    VARCHAR2(150)                   not null,
+   PRE_OBSERVACIONES    VARCHAR2(150),
    PRE_ESTADO           VARCHAR2(8)                     not null,
    constraint PK_PRESTAMO primary key (PRE_ID)
 );
@@ -205,7 +205,7 @@ create index DE_FK on PRESTAMO (
 /*==============================================================*/
 create table USUARIO  (
    USU_ID               INTEGER                         not null,
-   USU_TRABAJADOR       VARCHAR2(30)                    not null,
+   USU_TRABAJADOR       VARCHAR2(30),
    USU_CEDULA           VARCHAR2(11)                    not null,
    USU_NOMBRE           VARCHAR2(50)                    not null,
    USU_PROFESION        VARCHAR2(30)                    not null,
