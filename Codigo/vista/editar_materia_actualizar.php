@@ -2,11 +2,11 @@
 	$id = $_POST['id'];
 	$nombre = $_POST['nombre'];
 	$descripcion = $_POST['descripcion'];
-	$condicion= $_POST['condicion'];
+	//$condicion= $_POST['condicion'];
 
 	require('../controlador/Conexion.php');
 
-	$actualizar = "UPDATE MATERIA SET MAT_NOMBRE='$nombre', MAT_DESCRIPCION='$descripcion', MAT_CONDICION='$condicion' WHERE MAT_ID= $id ";
+	$actualizar = "UPDATE MATERIA SET MAT_NOMBRE='$nombre', MAT_DESCRIPCION='$descripcion' WHERE MAT_ID= $id ";
 
 	$stid = oci_parse($conexion, $actualizar);
 
