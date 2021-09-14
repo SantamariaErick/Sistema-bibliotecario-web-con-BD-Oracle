@@ -49,7 +49,7 @@
 									echo '<td>' . $row[ "MAT_CONDICION" ] . '</td>';
 
 									
-									echo '<td> <a href="editar_materia_recibe.php?id='.$row["MAT_ID" ].'" title="Editar">Editar</a></td></tr>';
+									echo '<td> <a href="editar_materia_recibe.php?id='.$row["MAT_ID" ].'" title="Editar">Editar </a><a href="eliminar_materia.php?id='.$row[ "MAT_ID" ].'" title="Activar"  class="btn-eliminar-i">Borrar</a></td></tr>';
 								}
 							  
 
