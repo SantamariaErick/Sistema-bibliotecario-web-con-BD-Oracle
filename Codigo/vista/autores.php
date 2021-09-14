@@ -42,7 +42,7 @@
 									<th>Nombre</th>
 									<th>Descripcion</th>
 									<th>Imagen</th>
-									<th>Estado</th>
+									<th>Acciones</th>
 								</thead>
 								<tbody>
 									<?php
@@ -50,7 +50,7 @@
 										echo '<tr><td>' . $row[ "AUT_NOMBRE" ] . '</td>';
 										echo '<td>' . $row[ "AUT_DESCRIPCION" ] . '</td>';
 										echo '<td>' . '<img class="perfil" src="../archivos/Autores/' . $row[ "AUT_IMAGEN" ] . '">' . '</td>';
-										echo '<td>' . $row[ "AUT_ESTADO" ] . '</td></tr>';
+										echo '<td> <a href="editar_autor.php?id='.$row["AUT_ID" ].'" title="Editar">Editar</a></td></tr>';
 									}
 									?>
 								</tbody>

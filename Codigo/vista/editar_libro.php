@@ -154,9 +154,9 @@
 					</div>
 
 					<div class="form-dividido2 formulario__grupo" id="grupo__descripcion">
-						<p><label for="descripcion" class="formulario__label">Portada</label>
+						<p><label for="descripcion" class="formulario__label">Cambiar portada</label>
 						</p>
-						<input type="file" value="<?php echo $fila[11]?>" class="formulario__input" name="imagen" id="imagen" required>
+						<input type="file" class="formulario__input" name="imagen" id="imagen">
 					</div>
 				</div>
 				<div class="row">
@@ -173,6 +173,11 @@
 	<?php
 	if ( isset( $_POST[ 'enviar' ] ) )//Si detecta el boton de enviar 
 	{
+		if(empty($_POST['imagen'])){//Si detecta una imagen guarda url, si no, guadra lo de la bd
+			$imagen = $fila[11];
+		}else{
+			 $imagen = $_POST[ 'imagen' ];
+		}
 		$mat = $_POST[ 'materia' ];
 		$edito = $_POST[ 'editorial' ];
 		$autor = $_POST[ 'autor' ];
@@ -183,7 +188,7 @@
 		$formato = $_POST[ 'formato' ];
 		$peso = $_POST[ 'peso' ];
 		$descripcion = $_POST[ 'descripcion' ];
-		$imagen = $_POST[ 'imagen' ];
+		
 		$actualizar = "UPDATE LIBRO SET MAT_ID =$mat, EDI_ID=$edito, AUT_ID = $autor, LIB_TITULO = '$titulo', LIB_CANTIDADDISPONIBLE = $cantidadDisp, LIB_ANIOEDICION = '$anioEd', LIB_CANTIDADPAGINAS = $cantidadPag, LIB_FORMATO = '$formato', LIB_PESO = $peso,LIB_DESCRIPCION='$descripcion',LIB_PORTADA='$imagen' WHERE LIB_ID = $id ";
 
 		$stid = oci_parse( $conexion, $actualizar );
