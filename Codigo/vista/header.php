@@ -12,7 +12,7 @@
 		<div class="sidebar">
 			<h2>Biblioteca</h2>
 			<ul>
-				<li><a href="prestamo.php" target="iframe_a"><i class="fas fa-home"></i>Escritorio</a>
+				<li><a href="prestamo.php" target="iframe_a"><i class="fas fa-home"></i>Préstamos</a>
 				</li>
 				<li><a href="libro.php" target="iframe_a"><i class="fas fa-book-open"></i>Libros</a>
 				</li>
