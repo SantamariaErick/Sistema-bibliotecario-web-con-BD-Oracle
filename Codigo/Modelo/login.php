@@ -26,7 +26,7 @@ if (!$r) {
 //comprobar datos de la consulta
 $row = oci_fetch_array($stid,OCI_ASSOC); 
 if($row >0){
-	echo '<script>window.alert("Clave y usuario correctos"); window.location="../index.html";</script>';
+	header('location: ../vista/header.php');
 	//Aqui va un header('paginaPrincipal');
 }
 else{
