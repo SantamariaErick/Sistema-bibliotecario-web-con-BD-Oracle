@@ -7,3 +7,7 @@ body{
 .filtro label, select{
 	margin-right: 10px;
 }
+
+.botones button{
+	margin-right: 5px;
+}

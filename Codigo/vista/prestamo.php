@@ -17,7 +17,7 @@
 					<div class="box">
 						<div class="box-header with-border">
 							<h1 class="box-title">Prestamos 	  
-					  <a href="formulario_libro.php" id="idcrear" >
+					  <a href="formulario_prestamo.php" id="idcrear" >
 					  <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fas fa-plus-square"></i>&nbsp;Agregar</button></a></h1>
 						</div>
 						<div class="filtro">
