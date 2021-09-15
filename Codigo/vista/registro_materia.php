@@ -10,30 +10,40 @@
 	<?php
 	$mensaje = "";
 	
-	$id = $_POST[ 'id' ]; 
+	//$id = $_POST[ 'id' ]; 
 	$nombre = $_POST[ 'nombre' ];
 	$descripcion = $_POST[ 'descripcion' ];
 	$estado = 1;
 
 	$conexion = oci_connect('BIBLIOTECA', 'bibliotecaweb', 'localhost/orcl');
 
-	$repetido = 0;
+	$materia = oci_parse($conexion, "Select * from MATERIA");
+	$r = oci_execute($materia);
+	$row_ini = oci_fetch_array($materia,OCI_ASSOC);
 	
-	
-	$query_rep1 = "Select mat_nombre from materia where mat_id = $id";
-	$stid = oci_parse($conexion, $query_rep1);
-	oci_execute($stid);
+	if($row_ini == 0){
+		$query =  "INSERT INTO materia(mat_id, mat_nombre, mat_descripcion, mat_estado) VALUES (1,'$nombre','$descripcion',$estado)";
+		$stid = oci_parse( $conexion, $query );
+		oci_execute( $stid );
+	}else{
 
+		$id_nuevo = oci_parse($conexion, "Select * from MATERIA");
+		$r2 = oci_execute($id_nuevo);
+		while ( $row = oci_fetch_array( $id_nuevo ) ) {
+			$aux = $row['MAT_ID'];
+		}
 
+		$aux = $aux+1;
 
-	$query = "INSERT INTO materia(mat_id, mat_nombre, mat_descripcion, mat_estado) VALUES ($id,'$nombre','$descripcion',$estado)";
+		$query = "INSERT INTO materia(mat_id, mat_nombre, mat_descripcion, mat_estado) VALUES ($aux,'$nombre','$descripcion',$estado)";
+		$stid = oci_parse( $conexion, $query );
+		$ok = oci_execute( $stid );
 
-	$stid = oci_parse($conexion, $query);
-	$ok = oci_execute($stid);
+	}
+
 
 	if ( $ok ) {
-		echo '<script>window.alert("Los datos se han guardado exitosamente");
-		window.location="formulario_materia.php";</script>';
+		echo '<script>window.alert("Los datos se han guardado exitosamente");</script>';
 	} else {
 		echo "<script>window.alert('Error al ingresar los datos de Administador');window.history.go(-1);</script>";
 	}
