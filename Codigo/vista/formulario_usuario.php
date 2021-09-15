@@ -13,12 +13,9 @@
 <div class="contenido">
 <div class="form-contenedor">
 <form id="form1" name="form1" method="post" action="registro_usuario.php">
-	<h1 class="centrar titulo">Formulario</h1>
+	<h1 class="centrar titulo">Formulario usuario</h1>
 	
 	<div class="row">
-	<div class="form-dividido2 formulario__grupo" id="grupo__id"><p><label for="id" class="formulario__label">ID </label></p>
-	<input type="number" class="formulario__input" name="id" id="id" placeholder="Ingrese el id" required>
-	</div>
 
 	<div class="form-dividido2 formulario__grupo" id="grupo__trabajador"><p><label for="trabajador" class="formulario__label">Trabajador </label></p>
 	<input type="text" class="formulario__input" name="trabajador" id="trabajador" placeholder="Ingrese el trabajador" required>

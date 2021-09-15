@@ -16,9 +16,6 @@
 	<h1 class="centrar titulo">Formulario</h1>
 	
 	<div class="row">
-	<div class="form-dividido2 formulario__grupo" id="grupo__id"><p><label for="id" class="formulario__label">ID </label></p>
-	<input type="number" class="formulario__input" name="id" id="id" placeholder="Ingrese el id" required>
-	</div>
 
 	<div class="form-dividido2 formulario__grupo" id="grupo__codigo"><p><label for="codigo" class="formulario__label">Codigo </label></p>
 	<input type="text" class="formulario__input" name="codigo" id="codigo" placeholder="Ingrese el codigo" required>

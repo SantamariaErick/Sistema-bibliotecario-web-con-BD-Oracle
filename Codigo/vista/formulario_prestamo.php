@@ -12,11 +12,6 @@
 	<form id="form1" name="form1" method="post" action="registro_prestamo.php">
 		<h1 class="centrar titulo">Formulario prestamo</h1>
 		<div class="row">
-			<div class="form-group col-md-2">
-				<p><label for="id" class="formulario__label">ID </label>
-				</p>
-				<input type="number" class="form-control" name="id" id="id" placeholder="Ingrese el id">
-			</div>
 			<div class="form-group col-md-6">
 				<p><label for="estudiante" class="formulario__label">Estudiante</label>
 				</p>
