@@ -28,8 +28,9 @@
 				</li>
 				<li><a href="acercade.html" target="iframe_a"><i class="fas fa-info-circle"></i>Acerca de</a>
 				</li>
-				<li><a href="../index.html"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
+				<li><a href="../index.html" onclick="return getSuccessOutput();"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
 				</li>
+
 			</ul>
 		</div>
 		<div class="main_content">
@@ -39,5 +40,58 @@
 			</div>
 		</div>
 	</div>
+	
+<script>
+
+function getSuccessOutput() {
+  getRequest(
+      'cerrar_seseion.php',
+       drawError
+  );
+  return true;
+}
+
+function drawError () {
+    var container = document.getElementById('output');
+    container.innerHTML = 'Bummer: there was an error!';
+}
+
+function drawOutput(responseText) {
+    var container = document.getElementById('output');
+   
+}
+
+function getRequest(url, success, error) {
+    var req = false;
+    try{
+        req = new XMLHttpRequest();
+    } catch (e){
+        try{
+            req = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try{
+                req = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e){
+                return false;
+            }
+        }
+    }
+    if (!req) return false;
+    if (typeof success != 'function') success = function () {};
+    if (typeof error!= 'function') error = function () {};
+    req.onreadystatechange = function(){
+        if(req .readyState == 4){
+            return req.status === 200 ? 
+                success(req.responseText) : error(req.status)
+            ;
+        }
+    }
+    req.open("GET", url, true);
+    req.send(null);
+    return req;
+}
+</script> 
+
+
 </body>
 </html>
