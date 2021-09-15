@@ -1,0 +1,13 @@
+/* CSS Document */
+/*Estilo para la imagen de portada de la tabla en libro.php y autor.php*/
+.portada{
+	text-align: center;
+	width: 50px;
+	height: 65px;
+}
+.perfil{
+	text-align: center;
+	width: 55px;
+	height: 60px;
+}
+

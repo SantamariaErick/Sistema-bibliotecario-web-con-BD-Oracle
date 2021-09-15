@@ -1,2 +1,0 @@
-Utilizar la base de datos generada para ORACLE
-Poner de nombre: BIBLIOTECA y contraseña: bibliotecaweb
