@@ -27,7 +27,7 @@ if (!$r) {
 }
 //comprobar datos de la consulta
 $row = oci_fetch_array($stid,OCI_ASSOC); 
-	
+session_start();
 $_SESSION['user'] = $row['USU_ID'];
 $aux = $_SESSION['user'];
 echo $aux;
