@@ -40,6 +40,8 @@
 		$ok = oci_execute( $stid );
 
 	}
+	
+	
 
 
 	if ( $ok ) {
