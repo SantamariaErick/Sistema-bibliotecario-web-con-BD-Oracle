@@ -13,6 +13,7 @@ $condicion = $_POST['condicion'];
 $prestamo = oci_parse($conexion, "Select * from PRESTAMO");
 $r = oci_execute($prestamo);
 $row_ini = oci_fetch_array($prestamo,OCI_ASSOC);
+
 if($row_ini == 0){
 	$query =  "INSERT INTO prestamo(PRE_ID,EST_ID, LIB_ID,PRE_FECHAPRESTADO,PRE_FECHADEVUELTO,PRE_CANTIDAD,PRE_OBSERVACIONES,PRE_CONDICION,PRE_ESTADO) VALUES (1,$est,$libro,TO_DATE('$fpresta', 'yyyy/mm/dd'),TO_DATE('$fdevol','yyyy/mm/dd'),$cantidad,'$observacion','$condicion',1)";
 	$stid = oci_parse( $conexion, $query );
