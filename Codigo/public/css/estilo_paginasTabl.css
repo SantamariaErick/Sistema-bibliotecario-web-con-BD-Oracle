@@ -1,0 +1,9 @@
+body{
+	padding: 0px 20px ;
+}
+.filtro{
+	margin: 20px 0px;
+}
+.filtro label, select{
+	margin-right: 10px;
+}
