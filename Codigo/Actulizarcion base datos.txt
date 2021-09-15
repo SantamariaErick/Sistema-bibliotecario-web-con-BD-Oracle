@@ -1,4 +1,8 @@
 alter table USUARIO add USU_ESTADO number(4) default 0 not null;
+commit;
 
+/*Modificacion tabla Prestamo*/
+ALTER TABLE PRESTAMO RENAME COLUMN PRE_ESTADO TO PRE_CONDICION;
+alter table PRESTAMO add PRE_ESTADO number(2) default 0 not null;
 commit;
 
