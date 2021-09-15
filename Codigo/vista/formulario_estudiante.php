@@ -13,7 +13,7 @@
 <div class="contenido">
 <div class="form-contenedor">
 <form id="form1" name="form1" method="post" action="registro_estudiante.php">
-	<h1 class="centrar titulo">Formulario</h1>
+	<h1 class="centrar titulo">Formulario estudiante</h1>
 	
 	<div class="row">
 
