@@ -13,6 +13,35 @@ $query = "INSERT INTO prestamo(PRE_ID,EST_ID, LIB_ID,PRE_FECHAPRESTADO,PRE_FECHA
 $stid = oci_parse( $conexion, $query );
 $ok = oci_execute( $stid );
 
+
+$stid = oci_parse($conexion, "Select * from AUDITORIA");
+$r = oci_execute($stid);
+$row = oci_fetch_array($stid,OCI_ASSOC); 
+
+session_start();
+$user = $_SESSION['user'];
+
+if($row == 0){
+	$query = "INSERT INTO AUDITORIA (AUD_ID, PRE_ID, USU_ID, AUD_DESCRIPCION) VALUES (1,$id,$user,TO_DATE('$fpresta','yyyy/mm/dd'))";
+	$stid = oci_parse( $conexion, $query );
+	oci_execute( $stid );
+}else{
+	
+	$id_nuevo = oci_parse($conexion, "Select * from AUDITORIA");
+	$r2 = oci_execute($id_nuevo);
+	while ( $row = oci_fetch_array( $id_nuevo ) ) {
+		$aux = $row['AUD_ID'];
+	}
+	
+	$aux = $aux+1;
+	
+	echo "<script>alert($aux);</script>";
+	
+	$auditoria = "INSERT INTO AUDITORIA (AUD_ID, PRE_ID, USU_ID, AUD_DESCRIPCION) VALUES ($aux,$id,$user,TO_DATE('$fpresta','yyyy/mm/dd'))";
+	$stid2 = oci_parse( $conexion, $auditoria );
+	oci_execute( $stid2 );
+}
+
 if ( $ok ) {
 	echo '<script>window.alert("Los datos se han guardado exitosamente");
 		window.location="formulario_editorial.php";</script>';
