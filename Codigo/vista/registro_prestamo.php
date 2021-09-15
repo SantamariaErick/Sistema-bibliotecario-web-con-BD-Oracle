@@ -1,6 +1,5 @@
 <?php
 require('../controlador/Conexion.php');
-$id = $_POST[ 'id' ];
 $est = $_POST['estudiante'];
 $libro = $_POST['libro'];
 $fpresta = $_POST['fpresta'];
@@ -31,7 +30,7 @@ if($row_ini == 0){
 
 	$stid = oci_parse( $conexion, $query );
 	$ok = oci_execute( $stid );
-
+	
 }
 
 
@@ -44,7 +43,7 @@ session_start();
 $user = $_SESSION['user'];
 
 if($row_auditoria == 0){
-	$query_auditoria = "INSERT INTO AUDITORIA (AUD_ID, PRE_ID, USU_ID, AUD_DESCRIPCION) VALUES (1,$id,$user,TO_DATE('$fpresta','yyyy/mm/dd'))";
+	$query_auditoria = "INSERT INTO AUDITORIA (AUD_ID, PRE_ID, USU_ID, AUD_DESCRIPCION) VALUES (1,$aux,$user,TO_DATE('$fpresta','yyyy/mm/dd'))";
 	$stid_aud = oci_parse( $conexion, $query_auditoria );
 	oci_execute( $stid_aud );
 }else{
@@ -68,7 +67,7 @@ if($row_auditoria == 0){
 
 if ( $ok ) {
 	echo '<script>window.alert("Los datos se han guardado exitosamente");
-		window.location="formulario_editorial.php";</script>';
+		window.location="formulario_prestamo.php";</script>';
 } else {
 	echo "<script>window.alert('Error al ingresar los datos');/*window.history.go(-1);*/</script>";
 }
