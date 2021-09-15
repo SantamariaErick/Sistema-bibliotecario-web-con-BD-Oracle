@@ -3,6 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<link href="../public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="../public/css/estilo_paginasTabl.css" rel="stylesheet" type="text/css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 	<title>Documento sin título</title>
 </head>
 
@@ -16,16 +18,18 @@
 				<div class="col-md-12">
 					<div class="box">
 						<div class="box-header with-border">
-							<h1 class="box-title">Usuario 	  
-					  <a href="formulario_usuario.php" id="idcrear" ><button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></a></h1>
+							<h1 class="box-title">Usuarios 	  
+					  		<a href="formulario_libro.php" id="idcrear" ><button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fas fa-plus-square"></i>&nbsp;Agregar</button></a></h1>
+						</div>
+						<div class="filtro">
 							<form method="post" name="form1">
 								<label for="filtro">Filtrar: </label>
-								<select name="filtro" id="filtro">
+								<select name="filtro" id="filtro" class="selectpicker">
 									<option value="todos">Todos</option>
 									<option value="activos">Activos</option>
 									<option value="inctivos">Inactivos</option>
 								</select>
-								<input type="submit" name="enviar" value="Consultar">
+								<input class="btn btn-primary btn-sm" type="submit" name="enviar" value="Consultar">
 							</form>
 						</div>
 						<!-- /.box-header -->
