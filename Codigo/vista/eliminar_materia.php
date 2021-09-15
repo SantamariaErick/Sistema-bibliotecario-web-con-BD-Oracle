@@ -9,7 +9,7 @@ $stid = oci_parse($conexion, $consultar);
 $r = oci_execute($stid);
 
 while ( $row = oci_fetch_array($stid) ) {
-	$estado = $row["MAT_CONDICION"];
+	$estado = $row["MAT_ESTADO"];
 	$usu = $row["MAT_ID"];
 }
 
@@ -28,7 +28,7 @@ if($estado == '1'){
 	$msj = 'activado';
 }
 
-$eliminar = "UPDATE MATERIA SET MAT_CONDICION = $estado WHERE MAT_ID ='$id'";
+$eliminar = "UPDATE MATERIA SET MAT_ESTADO = $estado WHERE MAT_ID ='$id'";
 $stid = oci_parse($conexion, $eliminar);
 $r2 = oci_execute($stid);
 
