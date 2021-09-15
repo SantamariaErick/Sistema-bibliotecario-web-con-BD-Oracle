@@ -27,8 +27,14 @@ if (!$r) {
 }
 //comprobar datos de la consulta
 $row = oci_fetch_array($stid,OCI_ASSOC); 
+	
+$_SESSION['user'] = $row['USU_ID'];
+$aux = $_SESSION['user'];
+echo $aux;
+	
+	
 if($row >0){
-	header('location: ../vista/header.php');
+	header('location: ../vista/header.php');;
 	//Aqui va un header('paginaPrincipal');
 }
 else{
