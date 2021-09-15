@@ -61,15 +61,11 @@ if($row_auditoria == 0){
 	}
 	
 	$aux_auditoria = $aux_auditoria+1;
-	
-	echo "<script>alert($aux_auditoria);</script>";
-	
 	$auditoria = "INSERT INTO AUDITORIA (AUD_ID, USU_ID, AUD_DESCRIPCION) VALUES ($aux_auditoria,$user,'Registro estudiante')";
 	$stid2 = oci_parse( $conexion, $auditoria );
 	oci_execute( $stid2 );
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 		if ( $ok &&($stid2 || $stid_aud) ) {
 			echo '<script>window.alert("Los datos se han guardado exitosamente");

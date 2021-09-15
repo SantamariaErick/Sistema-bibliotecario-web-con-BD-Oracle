@@ -1,6 +1,5 @@
 <?php
 require('../controlador/Conexion.php');
-$id = $_POST[ 'id' ];
 $nombre = $_POST[ 'nombre' ];
 $descripcion = $_POST[ 'descripcion' ];
 $estado = 1;
@@ -31,8 +30,33 @@ if($row_ini == 0){
 
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+$stid_auditoria = oci_parse($conexion, "Select * from AUDITORIA");
+$r = oci_execute($stid_auditoria);
+$row_auditoria = oci_fetch_array($stid_auditoria,OCI_ASSOC); 
+session_start();
+$user = $_SESSION['user'];
 
-if ( $ok ) {
+if($row_auditoria == 0){
+	$query_auditoria = "INSERT INTO AUDITORIA (AUD_ID, USU_ID, AUD_DESCRIPCION) VALUES (1,$user,'Registro editorial')";
+	$stid_aud = oci_parse( $conexion, $query_auditoria );
+	oci_execute( $stid_aud );
+}else{
+	
+	$id_nuevo_auditoria = oci_parse($conexion, "Select * from AUDITORIA");
+	$r2_auditoria = oci_execute($id_nuevo_auditoria);
+	while ( $row_aud = oci_fetch_array( $id_nuevo_auditoria ) ) {
+		$aux_auditoria = $row_aud['AUD_ID'];
+	}
+	
+	$aux_auditoria = $aux_auditoria+1;
+	$auditoria = "INSERT INTO AUDITORIA (AUD_ID, USU_ID, AUD_DESCRIPCION) VALUES ($aux_auditoria,$user,'Registro editorial')";
+	$stid2 = oci_parse( $conexion, $auditoria );
+	oci_execute( $stid2 );
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+if ( $ok &&($stid2 || $stid_aud) ) {
 	echo '<script>window.alert("Los datos se han guardado exitosamente");
 		window.location="editorial.php";</script>';
 } else {

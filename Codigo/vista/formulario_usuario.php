@@ -21,8 +21,8 @@
 	<input type="text" class="formulario__input" name="trabajador" id="trabajador" placeholder="Ingrese el trabajador" required>
 	</div>
 	
-	<div class="form-dividido2 formulario__grupo" id="grupo__cedula"><p><label for="cedula" class="formulario__label">Cedula </label></p>
-	<input type="text" class="formulario__input" name="cedula" id="cedula" placeholder="Ingrese la cedula" required>
+	<div class="form-dividido2 formulario__grupo" id="grupo__cedula"><p><label for="cedula" class="formulario__label">Cédula </label></p>
+	<input type="text" class="formulario__input" name="cedula" id="cedula" placeholder="Ingrese la cedula" onChange="validarCed()" required>
 	</div>
 	
 	<div class="form-dividido2 formulario__grupo" id="grupo__nombre"><p><label for="nombre" class="formulario__label">Nombre </label></p>
