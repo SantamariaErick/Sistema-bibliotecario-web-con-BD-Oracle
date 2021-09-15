@@ -1,67 +1,57 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Documento sin título</title>
-<link href="../css/estiloMostrar.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<meta charset="utf-8">
+	<title>Documento sin título</title>
+	<link href="../public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="../public/css/estilo_paginasTabl.css" rel="stylesheet" type="text/css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 
 <body>
-<div class="contenedor2">
-	<div class="cabeza">Editar Materia</div>
 	<?php
-	$id = $_GET['id'];
-	require('../controlador/Conexion.php');
-	$stid = oci_parse($conexion, "SELECT * FROM MATERIA where MAT_ID = $id");
-	
-	if (!$stid) {
-		$e = oci_error($conexion);
-		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	$id = $_GET[ 'id' ];
+	require( '../controlador/Conexion.php' );
+	$stid = oci_parse( $conexion, "SELECT * FROM MATERIA where MAT_ID = $id" );
+
+	if ( !$stid ) {
+		$e = oci_error( $conexion );
+		trigger_error( htmlentities( $e[ 'message' ], ENT_QUOTES ), E_USER_ERROR );
 	}
 
 	// Realizar la lógica de la consulta
-	$r = oci_execute($stid);
-	if (!$r) {
-		$e = oci_error($stid);//Algun error al consultar
-		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	$r = oci_execute( $stid );
+	if ( !$r ) {
+		$e = oci_error( $stid ); //Algun error al consultar
+		trigger_error( htmlentities( $e[ 'message' ], ENT_QUOTES ), E_USER_ERROR );
 	}
-	
+	$row = oci_fetch_array( $stid )
 	//echo $id;
 	?>
 	
-	<div class="cuerpo2">
-		<form name="form1" id="form1" method="post" action="editar_materia_actualizar.php">
-			<div class="cont-tabla">
-			<?php
-			//Mostramos los registros
-			while ( $row = oci_fetch_array($stid) ) {
-				?>
-				<input type="hidden" value="<?php echo $row["MAT_ID"]; ?>" name="id">
-				<div class="row">
-				<div class="form-dividido2 formulario__grupo" id="grupo__nombre"><p><label for="nombre" class="formulario__label">Nombre </label></p>
-				<input type="text" class="formulario__input" name="nombre" id="nombre" value="<?php echo $row[ "MAT_NOMBRE" ]; ?>" placeholder="Ingrese el nombre" required>
-				</div>
-
-				<div class="form-dividido2 formulario__grupo" id="grupo__descripcion"><p><label for="descripcion" class="formulario__label">Descripcion </label></p>
-				<input type="text" class="formulario__input" name="descripcion" id="descripcion" value="<?php echo $row[ "MAT_DESCRIPCION" ]; ?>" placeholder="Ingrese la descripcion" required>
-				</div>
-
-				</div>
-
-				<?php
-			}
-				oci_free_statement($stid);   
-			?>
+	<form id="form1" name="form1" method="post" action="editar_materia_actualizar.php">
+		<input type="hidden" name="id" value="<?php echo $id?>">
+		<h1 class="centrar titulo">Formulario materia</h1>
+		<div class="row">
+			<div class="form-group col-md-4">
+				<p><label for="nombre" class="formulario__label">Nombre </label>
+				</p>
+				<input value="<?php echo $row[ 'MAT_NOMBRE' ]; ?>" type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese el nombre" required>
 			</div>
-			<div class="opciones">
-				<input type="submit" value="Actualizar">
-				<a href="materia.php" id="idcancelar"><button type="button" value="cancelar">Cancelar</button></a>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-4">
+				<p><label for="descripcion" class="formulario__label">Descripcion </label>
+				</p>
+				<input value="<?php echo $row[ 'MAT_DESCRIPCION' ]; ?>" type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Ingrese la descripcion" required>
 			</div>
-		</form>
-	</div>
-
-</div>
-
+		</div>
+		<div class="botones">
+			<button type="submit" name="enviar" id="idsubmit" value="ingresar" class="btn btn-primary"><i class="fas fa-save fa-fw"></i>&nbsp;&nbsp;Guardar</button>
+			<button class="btn btn-primary" type="reset" name="resetear" value="limpiar"><i class="fas fa-times-circle fa-fw"></i>&nbsp;&nbsp;Limpiar</button>
+			<a href="materia.php"><button class="btn btn-primary" type="button" name="volver" id="idvolver" value="Volver"><i class="fas fa-chevron-left fa-fw"></i>&nbsp;&nbsp;Volver</button></a>
+		</div>
+	</form>
+	
 </body>
 </html>

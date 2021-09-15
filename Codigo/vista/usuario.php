@@ -5,6 +5,7 @@
 	<link href="../public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="../public/css/estilo_paginasTabl.css" rel="stylesheet" type="text/css">
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	
 	<title>Documento sin título</title>
 </head>
 

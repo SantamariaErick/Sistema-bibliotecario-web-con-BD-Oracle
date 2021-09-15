@@ -23,9 +23,7 @@ if($row_ini == 0){
 	while ( $row = oci_fetch_array( $id_nuevo ) ) {
 		$aux = $row['PRE_ID'];
 	}
-	
 	$aux = $aux+1;
-	
 	$query = "INSERT INTO prestamo(PRE_ID,EST_ID, LIB_ID,PRE_FECHAPRESTADO,PRE_FECHADEVUELTO,PRE_CANTIDAD,PRE_OBSERVACIONES,PRE_CONDICION,PRE_ESTADO) VALUES ($aux,$est,$libro,TO_DATE('$fpresta', 'yyyy/mm/dd'),TO_DATE('$fdevol','yyyy/mm/dd'),$cantidad,'$observacion','$condicion',1)";
 
 	$stid = oci_parse( $conexion, $query );
@@ -55,9 +53,6 @@ if($row_auditoria == 0){
 	}
 	
 	$aux_auditoria = $aux_auditoria+1;
-	
-	echo "<script>alert($aux_auditoria);</script>";
-	
 	$auditoria = "INSERT INTO AUDITORIA (AUD_ID, PRE_ID, USU_ID, AUD_DESCRIPCION) VALUES ($aux_auditoria,$aux,$user,TO_DATE('$fpresta','yyyy/mm/dd'))";
 	$stid2 = oci_parse( $conexion, $auditoria );
 	oci_execute( $stid2 );

@@ -63,7 +63,7 @@
 					</select>
 				</p>
 			</div>
-			</div>
+		</div>
 		<div class="row">
 			<div class="form-group col-md-4" id="grupo__nombre">
 				<p><label for="nombre" class="formulario__label">Fecha prestado</label>
@@ -72,12 +72,12 @@
 			</div>
 			<div class="form-group col-md-4">
 				<p>
-					<label for="fdevol" >Fecha devolucion </label>
+					<label for="fdevol">Fecha devolucion </label>
 				</p>
 				<input name="fdevol" type="date" required class="form-control" id="fdevol">
 			</div>
 			<div class="form-group col-md-4">
-				<p><label for="cantidad" >Cantidad </label>
+				<p><label for="cantidad">Cantidad </label>
 				</p>
 				<input name="cantidad" type="number" required class="form-control" id="cantidad" max="30" min="0" step="1">
 			</div>
@@ -92,7 +92,7 @@
 				<p><label for="condicion">Estado</label>
 				</p>
 				<p>
-					<select name="condicion" id="condicion" class="form-control"	>
+					<select name="condicion" id="condicion" class="form-control">
 						<option value="prestado">Prestado</option>
 						<option value="devuelto">Devuelto</option>
 					</select>

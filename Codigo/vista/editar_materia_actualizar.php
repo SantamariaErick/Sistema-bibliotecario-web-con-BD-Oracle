@@ -40,8 +40,6 @@
 
 			$aux_auditoria = $aux_auditoria+1;
 
-			echo "<script>alert($aux_auditoria);</script>";
-
 			$auditoria = "INSERT INTO AUDITORIA (AUD_ID, USU_ID, AUD_DESCRIPCION) VALUES ($aux_auditoria,$user,'Actualizo materia')";
 			$stid2 = oci_parse( $conexion, $auditoria );
 			oci_execute( $stid2 );
@@ -51,7 +49,7 @@
 		
 		echo '<script>
 				alert("Los datos se han actualizado correctamente");
-
+				window.location="materia.php";
 			</script>';
 
 	} else{

@@ -2,7 +2,7 @@
 	$id = $_POST['id'];
 	$codigo = $_POST['codigo'];
 	$cedula = $_POST['cedula'];
-	$nombre = $_POST['Nombre'];
+	$nombre = $_POST['nombre'];
 	$carrera = $_POST['carrera'];
 	$direccion= $_POST['direccion'];
 	$telefono = $_POST['telefono'];
