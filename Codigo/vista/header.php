@@ -26,6 +26,8 @@
 				</li>
 				<li><a href="usuario.php" target="iframe_a"><i class="fas fa-user"></i>Administrador</a>
 				</li>
+				<li><a href="auditoria.php" target="iframe_a"><i class="fas fa-user"></i>Auditoria</a>
+				</li>
 				<li><a href="acercade.html" target="iframe_a"><i class="fas fa-info-circle"></i>Acerca de</a>
 				</li>
 				<li><a href="../index.html" onclick="return getSuccessOutput();"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
