@@ -46,7 +46,7 @@
 									echo '<tr><td>' . $row[ "MAT_ID" ] . '</td>';
 									echo '<td>' . $row[ "MAT_NOMBRE" ] . '</td>';
 									echo '<td>' . $row[ "MAT_DESCRIPCION" ] . '</td>';
-									echo '<td>' . $row[ "MAT_CONDICION" ] . '</td>';
+									echo '<td>' . $row[ "MAT_ESTADO" ] . '</td>';
 
 									
 									echo '<td> <a href="editar_materia_recibe.php?id='.$row["MAT_ID" ].'" title="Editar">Editar </a><a href="eliminar_materia.php?id='.$row[ "MAT_ID" ].'" title="Activar"  class="btn-eliminar-i">Borrar</a></td></tr>';

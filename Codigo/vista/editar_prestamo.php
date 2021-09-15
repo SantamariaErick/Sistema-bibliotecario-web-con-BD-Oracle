@@ -7,34 +7,34 @@
 
 <body>
 	<?php
-	$id = $_GET['id'];
-	require('../controlador/Conexion.php');
-	
-	$stid = oci_parse($conexion, "SELECT * FROM PRESTAMO where PRE_ID = $id");
-	
-	if (!$stid) {
-		$e = oci_error($conexion);
-		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-	}
+	$id = $_GET[ 'id' ];
+	require( '../controlador/Conexion.php' );
 
-	// Realizar la lógica de la consulta
-	$r = oci_execute($stid);
-	if (!$r) {
-		$e = oci_error($stid);//Algun error al consultar
-		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	$stid = oci_parse( $conexion, "SELECT * FROM PRESTAMO where PRE_ID = $id" );
+
+	if ( !$stid ) {
+		$e = oci_error( $conexion );
+		trigger_error( htmlentities( $e[ 'message' ], ENT_QUOTES ), E_USER_ERROR );
 	}
-	$row = oci_fetch_array( $stid );
+	
+	// Realizar la lógica de la consulta
+	$r = oci_execute( $stid );
+	if ( !$r ) {
+		$e = oci_error( $stid ); //Algun error al consultar
+		trigger_error( htmlentities( $e[ 'message' ], ENT_QUOTES ), E_USER_ERROR );
+	}
+	$fila = oci_fetch_array( $stid );
 	?>
 	<div class="contenido">
 		<div class="form-contenedor">
-			<form id="form1" name="form1" method="post" action="registro_prestamo.php">
+			<form id="form1" name="form1" method="post">
 				<h1 class="centrar titulo">Formulario prestamo</h1>
 
 				<div class="row">
 					<div class="form-dividido2 formulario__grupo" id="grupo__id">
 						<p><label for="id" class="formulario__label">ID </label>
 						</p>
-						<input type="number" class="formulario__input" name="id" id="id" placeholder="Ingrese el id" value="<?php echo $row[0]?>" disabled>
+						<input type="number" class="formulario__input" name="id" id="id" placeholder="Ingrese el id" value="<?php echo $fila[0]?>" disabled>
 					</div>
 					<div class="form-dividido2 formulario__grupo">
 						<p><label for="estudiante" class="formulario__label">Estudiante</label>
@@ -87,25 +87,25 @@
 						</p>
 					</div>
 					<div class="form-dividido2 formulario__grupo" id="grupo__nombre">
-						<p><label for="nombre" class="formulario__label">Fecha prestado</label>
+					  <p><label for="nombre" class="formulario__label">Fecha prestado</label>
 						</p>
-						<input type="date" class="formulario__input" name="fpresta" id="fpresta" value="<?php echo $row[3]?>" required>
+						<input name="fpresta" type="date"  required class="formulario__input" id="fpresta" value="<?php echo $fila[3]?>">
 					</div>
 					<div class="form-dividido2 formulario__grupo">
 						<p>
 							<label for="fdevol" class="formulario__label">Fecha devolucion </label>
 						</p>
-						<input name="fdevol" type="date" value="<?php echo $row[4]?>" required class="formulario__input" id="fdevol">
+						<input name="fdevol" type="date" value="<?php echo $fila[4]?>" required class="formulario__input" id="fdevol">
 					</div>
 					<div class="form-dividido2 formulario__grupo">
 						<p><label for="cantidad" class="formulario__label">Cantidad </label>
 						</p>
-						<input name="cantidad" type="number" value="<?php echo $row[5]?>" required class="formulario__input" id="cantidad" max="30" min="0" step="1">
+						<input name="cantidad" type="number" value="<?php echo $fila[5]?>" required class="formulario__input" id="cantidad" max="30" min="0" step="1">
 					</div>
 					<div class="form-dividido2 formulario__grupo">
 						<p><label for="observacion" class="formulario__label">Observaciones</label>
 						</p>
-						<input name="observacion" value="<?php echo $row[6]?>" type="text" required class="formulario__input" id="observacion">
+						<input name="observacion" value="<?php echo $fila[6]?>" type="text" required class="formulario__input" id="observacion">
 					</div>
 					<div class="form-dividido2 formulario__grupo">
 						<p><label for="condicion" class="formulario__label">Estado</label>
@@ -128,44 +128,44 @@
 			</div>
 		</div>
 		<?php
-		$id = $_POST['id'];
-		$est = $_POST[ 'estudiante' ];
-		$libro = $_POST[ 'libro' ];
-		$fpresta = $_POST[ 'fpresta' ];
-		$fdevol = $_POST[ 'fdevol' ];
-		$cantidad = $_POST[ 'cantidad' ];
-		$observacion = $_POST[ 'observacion' ];
-		$condicion = $_POST[ 'condicion' ];
-		$actualizar = "UPDATE PRESTAMO SET EST_ID='$est', LIB_ID='$libro', PRE_FECHAPRESTADO= '$fpresta', PRE_FECHADEVUELTO='$$fdevol', PRE_CANTIDAD='$cantidad', PRE_OBSERVACIONES='$observacion',PRE_ESTADO='$condicion' WHERE PRE_ID= $id ";
+		if ( isset( $_POST[ 'enviar' ] ) ) //Si detecta el boton de enviar 
+		{
+			$est = $_POST[ 'estudiante' ];
+			$libro = $_POST[ 'libro' ];
+			$fpresta = $_POST[ 'fpresta' ];
+			$fdevol = $_POST[ 'fdevol' ];
+			$cantidad = $_POST[ 'cantidad' ];
+			$observacion = $_POST[ 'observacion' ];
+			$condicion = $_POST[ 'condicion' ];
+			$actualizar = "UPDATE PRESTAMO SET EST_ID=$est, LIB_ID=$libro, PRE_FECHAPRESTADO= TO_DATE('$fpresta', 'yyyy/mm/dd'), PRE_FECHADEVUELTO= TO_DATE('$fdevol','yyyy/mm/dd'), PRE_CANTIDAD=$cantidad, PRE_OBSERVACIONES='$observacion',PRE_CONDICION='$condicion' WHERE PRE_ID= $fila[0]";
 
-		$stid = oci_parse( $conexion, $actualizar );
+			$stid = oci_parse( $conexion, $actualizar );
 
-		if ( !$stid ) {
-			$e = oci_error( $conexion );
-			trigger_error( htmlentities( $e[ 'message' ], ENT_QUOTES ), E_USER_ERROR );
-		}
+			if ( !$stid ) {
+				$e = oci_error( $conexion );
+				trigger_error( htmlentities( $e[ 'message' ], ENT_QUOTES ), E_USER_ERROR );
+			}
 
-		// Realizar la lógica de la consulta
-		$r = oci_execute( $stid );
+			// Realizar la lógica de la consulta
+			$r = oci_execute( $stid );
 
-		if ( $r ) {
-			echo '<script>
+			if ( $r ) {
+				echo '<script>
 				alert("Los datos se han actualizado correctamente");
-				window.location="estudiante.php";
+				window.location="prestamo.php";
 			</script>';
-		} else {
-			echo '<script>
+			} else {
+				echo '<script>
 				alert("Hubo un error al guardar");
 				window.history.go(-1);
 			</script>';
+			}
+
+			if ( !$r ) {
+				$e = oci_error( $stid ); //Algun error al consultar
+				trigger_error( htmlentities( $e[ 'message' ], ENT_QUOTES ), E_USER_ERROR );
+			}
 		}
-
-		if ( !$r ) {
-			$e = oci_error( $stid ); //Algun error al consultar
-			trigger_error( htmlentities( $e[ 'message' ], ENT_QUOTES ), E_USER_ERROR );
-		}
-
-
 		?>
 </body>
 </html>

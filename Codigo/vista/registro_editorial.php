@@ -5,7 +5,7 @@ $nombre = $_POST[ 'nombre' ];
 $descripcion = $_POST[ 'descripcion' ];
 $estado = 1;
 
-$query = "INSERT INTO editorial(edi_id,edi_nombre, edi_descripcion,edi_condicion) VALUES ($id,'$nombre','$descripcion',$estado)";
+$query = "INSERT INTO editorial(edi_id,edi_nombre, edi_descripcion,edi_estado) VALUES ($id,'$nombre','$descripcion',$estado)";
 
 $stid = oci_parse( $conexion, $query );
 $ok = oci_execute( $stid );

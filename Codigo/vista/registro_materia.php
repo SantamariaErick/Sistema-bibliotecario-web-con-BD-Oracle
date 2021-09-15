@@ -26,7 +26,7 @@
 
 
 
-	$query = "INSERT INTO materia(mat_id, mat_nombre, mat_descripcion, mat_condicion) VALUES ($id,'$nombre','$descripcion',$estado)";
+	$query = "INSERT INTO materia(mat_id, mat_nombre, mat_descripcion, mat_estado) VALUES ($id,'$nombre','$descripcion',$estado)";
 
 	$stid = oci_parse($conexion, $query);
 	$ok = oci_execute($stid);
